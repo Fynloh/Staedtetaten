@@ -5,6 +5,7 @@ class KnopfControl
                       erweitern4Z = 6, erweitern5Z = 7, erweitern6Z = 8;
   
   private int aktuellerZustand = startZ;
+  
   private Raten meinRaten;
   private SolveTree meinSolveTree;
   private String alteStadt, neueStadt, frage;
@@ -15,8 +16,8 @@ class KnopfControl
   
   KnopfControl (Raten paraRaten, SolveTree paraSolveTree)
   {
+	meinSolveTree = paraSolveTree;
     meinRaten = paraRaten;
-    meinSolveTree = paraSolveTree;
   }
 
   void automat (String cmd)
@@ -186,5 +187,6 @@ class KnopfControl
       meinRaten.zeile.setText ("Jetzt kann ich es. Weiter mir <Weiter>");
       aktuellerZustand = neuStartZ;
     }
+    meinRaten.showCityCount(meinSolveTree.countLeaves(meinSolveTree.getTree()));
   }       
 }

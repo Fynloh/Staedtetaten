@@ -66,9 +66,36 @@ class SolveTree
   
     public boolean isLeaf ()
     {
-      BinaryTree<String> links = meinBaum.getLeftTree();
-      BinaryTree<String> rechts = meinBaum.getRightTree();
-      return  (links.getContent()==null && rechts.getContent()==null);
+      BinaryTree<String> left = meinBaum.getLeftTree();
+      BinaryTree<String> right = meinBaum.getRightTree();
+      return  (left.getContent()==null && right.getContent()==null);
+    }
+    
+    public boolean isLeaf (BinaryTree<String> tree)
+    {
+      BinaryTree<String> left = tree.getLeftTree();
+      BinaryTree<String> right = tree.getRightTree();
+      return  (left.getContent()==null && right.getContent()==null);
+    }
+    
+    public int countLeaves (BinaryTree<String> tree)
+    {
+    	if (isLeaf(tree))
+    		return 1;
+    	else
+    		return countLeaves(tree.getLeftTree()) 
+    				+ countLeaves(tree.getRightTree());
+    }
+    
+    public int getDepth (BinaryTree<String> tree)
+    {
+    	if ((tree.getLeftTree() != null) || (tree.getRightTree() != null))
+    		return 1;
+    	else
+    		if (getDepth(tree.getLeftTree()) > getDepth(tree.getRightTree()))
+    			return getDepth(tree.getLeftTree());
+    		else
+    			return getDepth(tree.getRightTree());
     }
   
   public String getRoot ()
@@ -83,6 +110,11 @@ class SolveTree
       BinaryTree<String> rechts = new BinaryTree<String> (rechteStadt);
       meinBaum.setLeftTree (links);
       meinBaum.setRightTree (rechts);
+  }
+  
+  public BinaryTree<String> getTree ()
+  {
+	  return start;
   }
 }
 

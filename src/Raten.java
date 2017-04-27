@@ -15,6 +15,7 @@ public class Raten extends JFrame implements ActionListener
      private SolveTree meinSolveTree = new SolveTree();
      private KnopfControl meinKnopfControl = new KnopfControl (this, meinSolveTree);
      private final String startzeile = "Denken Sie sich eine Stadt aus. Weiter mit <Weiter>.";
+     private JLabel cities;
     
 
     public Raten()
@@ -36,7 +37,7 @@ public class Raten extends JFrame implements ActionListener
         
       //Panel fï¿½r die Knï¿½pfe
       JPanel Knoepfe = new JPanel ();
-      Knoepfe.setLayout (new GridLayout (4,1));
+      Knoepfe.setLayout (new GridLayout (5,1));
       JButton button1 = new JButton("Weiter");  
       button1.addActionListener(this);
       Knoepfe.add(button1);
@@ -49,6 +50,10 @@ public class Raten extends JFrame implements ActionListener
       JButton button4 = new JButton("Ende");
       button4.addActionListener(this);
       Knoepfe.add(button4);
+      cities = new JLabel ();
+      cities.setVisible(true);
+      Knoepfe.add(cities);
+      
       this.getContentPane().add (Knoepfe);
       int frameWidth = 900;
       int frameHeight = 700;
@@ -77,6 +82,11 @@ public class Raten extends JFrame implements ActionListener
       jTextField1.setBounds(180, 30, 500, 81);
       jTextField1.setEditable(false);
       cp.add(jTextField1);
+      
+      showCityCount(meinSolveTree.countLeaves(meinSolveTree.getTree()));
+      System.out.println(meinSolveTree.countLeaves(meinSolveTree.getTree()));
+      
+      System.out.println(meinSolveTree.getDepth(meinSolveTree.getTree()));
 
    }
 
@@ -84,7 +94,12 @@ public class Raten extends JFrame implements ActionListener
     { 
       String cmd = event.getActionCommand();
       meinKnopfControl.automat (cmd);
-    } 
+    }
+    
+    public void showCityCount (int count)
+    {
+    	cities.setText("Städte: "+ count +"");
+    }
     
     public static void main(String[] args)
     {
