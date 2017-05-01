@@ -87,16 +87,28 @@ class SolveTree
     				+ countLeaves(tree.getRightTree());
     }
     
-    public int getDepth (BinaryTree<String> tree)
-    {
-    	if ((tree.getLeftTree() != null) || (tree.getRightTree() != null))
-    		return 1;
-    	else
-    		if (getDepth(tree.getLeftTree()) > getDepth(tree.getRightTree()))
-    			return getDepth(tree.getLeftTree());
-    		else
-    			return getDepth(tree.getRightTree());
-    }
+
+    
+	public int getDepth (BinaryTree<String> aktuTree) 
+	{
+	    if (aktuTree == null)
+	        return 0;
+	    else 
+	    {
+	        int depthLeft = getDepth (aktuTree.getLeftTree());
+	        int depthRight = getDepth (aktuTree.getRightTree());
+	        
+	        if (depthLeft > depthRight )
+	            return depthLeft + 1;
+	        else
+	            return depthRight + 1;
+	    }
+	}
+    
+    
+ 
+    
+    
   
   public String getRoot ()
   {
@@ -115,6 +127,11 @@ class SolveTree
   public BinaryTree<String> getTree ()
   {
 	  return start;
+  }
+  
+  public BinaryTree<String> getLeft (BinaryTree<String> tree)
+  {
+	  return tree.getLeftTree();
   }
 }
 

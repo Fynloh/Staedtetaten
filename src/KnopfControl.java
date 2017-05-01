@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 class KnopfControl
 {
    private final int startZ = 0, ratenZ = 1, erweitern1Z = 2,
@@ -42,6 +44,12 @@ class KnopfControl
         break;
         case erweitern3Z:  bearbeiteErweitern3 (cmd);
         break;
+    }
+    
+     if (cmd.equals ("Tiefe"))
+    { 
+    	System.out.println("Depth");
+        JOptionPane.showMessageDialog (meinRaten, "Die Tiefe des Baums beträgt: "+ meinSolveTree.getDepth (meinSolveTree.getTree ()));
     }
   } 
     
@@ -105,6 +113,11 @@ class KnopfControl
           meinRaten.dispose();
           System.exit(0);
       }
+    else if (cmd.equals ("Tiefe"))
+    { 
+    	System.out.println("Depth");
+        JOptionPane.showMessageDialog (meinRaten, "Die Tiefe des Baums beträgt: "+ meinSolveTree.getDepth (meinSolveTree.getTree ()));
+    }
 
   } 
   

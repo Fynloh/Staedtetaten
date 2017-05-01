@@ -37,7 +37,7 @@ public class Raten extends JFrame implements ActionListener
         
       //Panel f�r die Kn�pfe
       JPanel Knoepfe = new JPanel ();
-      Knoepfe.setLayout (new GridLayout (5,1));
+      Knoepfe.setLayout (new GridLayout (6,1));
       JButton button1 = new JButton("Weiter");  
       button1.addActionListener(this);
       Knoepfe.add(button1);
@@ -50,6 +50,9 @@ public class Raten extends JFrame implements ActionListener
       JButton button4 = new JButton("Ende");
       button4.addActionListener(this);
       Knoepfe.add(button4);
+      JButton button5 = new JButton("Tiefe");  
+      button5.addActionListener(this);
+      Knoepfe.add(button5);
       cities = new JLabel ();
       cities.setVisible(true);
       Knoepfe.add(cities);
@@ -84,9 +87,9 @@ public class Raten extends JFrame implements ActionListener
       cp.add(jTextField1);
       
       showCityCount(meinSolveTree.countLeaves(meinSolveTree.getTree()));
-      System.out.println(meinSolveTree.countLeaves(meinSolveTree.getTree()));
+     // System.out.println(meinSolveTree.countLeaves(meinSolveTree.getTree()));
       
-      System.out.println(meinSolveTree.getDepth(meinSolveTree.getTree()));
+      
 
    }
 
