@@ -87,7 +87,7 @@ public class Raten extends JFrame implements ActionListener
       cp.add(jTextField1);
       
       showCityCount(meinSolveTree.countLeaves(meinSolveTree.getTree()));
-     // System.out.println(meinSolveTree.countLeaves(meinSolveTree.getTree()));
+   
       
       
 
@@ -101,7 +101,7 @@ public class Raten extends JFrame implements ActionListener
     
     public void showCityCount (int count)
     {
-    	cities.setText("Städte: "+ count +"");
+    	cities.setText("Städte: "+ count);
     }
     
     public static void main(String[] args)

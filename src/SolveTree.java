@@ -19,14 +19,24 @@ class SolveTree
         BinaryTree<String> linksLiLiLiLi = new BinaryTree<String> ("Landeshauptstadt von Niedersachsen?");
         BinaryTree<String> linksLiLiLiLiRe = new BinaryTree<String> ("Hannover");
         BinaryTree<String> linksLiLiLiLiLi = new BinaryTree<String> ("Minden");
-        BinaryTree<String> linksLiRe = new BinaryTree<String> ("Minden");
+        BinaryTree<String> linksLiRe = new BinaryTree<String> ("KFZ-Kennzeichen: HM?");
+        BinaryTree<String> linksLiReRe = new BinaryTree<String> ("Hameln");
+        BinaryTree<String> linksLiReLi = new BinaryTree<String> ("Minden");
         BinaryTree<String> rechtsLi = new BinaryTree<String> ("Ehemalige Hauptstadt Deutschlands?");
-        BinaryTree<String> rechtsLiLi = new BinaryTree<String> ("Koeln");
+        BinaryTree<String> rechtsLiLi = new BinaryTree<String> ("Hauptsitz ZDF?");
+        BinaryTree<String> rechtsLiLiRe = new BinaryTree<String> ("Mainz");
+        BinaryTree<String> rechtsLiLiLi = new BinaryTree<String> ("Koeln");
         BinaryTree<String> rechtsLiRe = new BinaryTree<String> ("Bonn");
-        BinaryTree<String> rechtsRe = new BinaryTree<String> ("Basel");
+        BinaryTree<String> rechtsRe = new BinaryTree<String> ("Beträgt die Einwohnerzahl etwa 175.000");
+        BinaryTree<String> rechtsReRe = new BinaryTree<String> ("Basel");
+        BinaryTree<String> rechtsReLi = new BinaryTree<String> ("Mannheim");
         
-        
-       
+        rechtsLiLi.setLeftTree(rechtsLiLiLi);
+        rechtsLiLi.setRightTree(rechtsLiLiRe);
+        linksLiRe.setRightTree(linksLiReRe);
+        linksLiRe.setLeftTree(linksLiReLi);
+        rechtsRe.setRightTree(rechtsReRe);
+        rechtsRe.setLeftTree(rechtsReLi);
         linksLiLiLiLi.setLeftTree(linksLiLiLiLiLi);
         linksLiLiLiLi.setRightTree(linksLiLiLiLiRe);
         linksLiLiLi.setLeftTree(linksLiLiLiLi);
